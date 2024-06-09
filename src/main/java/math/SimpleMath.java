@@ -15,6 +15,9 @@ public class SimpleMath {
     }
 
     public Double division(Double firstNumber, Double secondNumber) {
+        if (secondNumber == 0) {
+            throw new IllegalArgumentException("Division by zero is not allowed");
+        }
         return firstNumber / secondNumber;
     }
 
