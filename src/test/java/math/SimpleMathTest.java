@@ -101,7 +101,13 @@ public class SimpleMathTest {
         //SimpleMath math = new SimpleMath();
         Double a = 8.0;
         Double b = 0.0;
-        assertThrows(IllegalArgumentException.class, () -> math.division(a, b), "Division by zero should throw IllegalArgumentException");
+       // assertThrows(IllegalArgumentException.class, () -> math.division(a, b), "Division by zero should throw IllegalArgumentException");
+
+        // When & Then
+        assertThrows(ArithmeticException.class, () -> {
+            // When & Then
+            math.division(a, b);
+        });
     }
 
     @Test
