@@ -38,14 +38,18 @@ public class SimpleMathTestS4 {
 
     @DisplayName("Test 8.0 / 2.0 = 4.0")
     @ParameterizedTest
-    /*@CsvSource({
+    @CsvSource({
             "6.2, 2, 3.1",
             "71, 14, 5.07",
             "18.3, 3.1, 5.90"
     })
-    */
 
-    @CsvSource({"Senna, F1", "Keith Moon, ''"})
+
+  /* @CsvSource({
+            "Senna, F1",
+            "Pelé, Football",
+            "Keith Moon, ''"
+    })*/
     void testDivision(double a, double b, double expected) {
 
         System.out.println("Test " + a + "/" + b + "=" + expected);
