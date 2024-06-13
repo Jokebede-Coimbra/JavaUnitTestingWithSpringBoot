@@ -3,6 +3,7 @@ package math;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.MethodSource;
 
@@ -36,24 +37,26 @@ public class SimpleMathTestS4 {
         System.out.println("Running @AfterEach method!");
     }
 
-    @DisplayName("Test 8.0 / 2.0 = 4.0")
+    @DisplayName("Test double division [ firstNumber,  secondNumber,  expected]")
     @ParameterizedTest
-    @CsvSource({
-            "6.2, 2, 3.1",
-            "71, 14, 5.07",
-            "18.3, 3.1, 5.90"
-    })
+    /*
+     @CsvSource({
+     "6.2, 2, 3.1",
+     "71, 14, 5.07",
+     "18.3, 3.1, 5.90"
+     })
 
+     @CsvSource({
+     "Senna, F1",
+     "Pelé, Football",
+     "Keith Moon, ''"
+     })
+     */
+    @CsvFileSource(resources = "/testDivision.csv")
+    void testDivision(double firstNumber, double secondNumber, double expected) {
 
-  /* @CsvSource({
-            "Senna, F1",
-            "Pelé, Football",
-            "Keith Moon, ''"
-    })*/
-    void testDivision(double a, double b, double expected) {
-
-        System.out.println("Test " + a + "/" + b + "=" + expected);
-        Double actual = math.division(a, b);
+        System.out.println("Test " + firstNumber + "/" + secondNumber + "=" + expected);
+        Double actual = math.division(firstNumber, secondNumber);
 
         assertEquals(expected, actual, 2D, () -> String.format("Expected %f but got %f", expected, actual));
 
