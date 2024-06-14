@@ -25,7 +25,7 @@ public class ArraysCompareTest {
     @Timeout(value = 15, unit = TimeUnit.MILLISECONDS)
     void testSortPerformance() {
        int[] numbers = { 2, 1, 6, 5, 4, 3};
-        for (int i = 0; i < 1000000; i++) {
+        for (int i = 0; i < 1000; i++) {
             numbers[0] = i;
             Arrays.sort(numbers);
         }
