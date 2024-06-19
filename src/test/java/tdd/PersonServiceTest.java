@@ -53,4 +53,19 @@ public class PersonServiceTest {
 
     }
 
+    @DisplayName("When Create a Person with null e-Mail Should throw Exception")
+    @Test
+    void testCreatePerson_WithNullEMail_ShouldThrowIllegalArgumentException() {
+        // Given / Arrange
+        IPersonService service = new PersonService();
+        person.setEmail(null);
+
+        // When / Act
+        // Then / Assert
+        assertThrows(
+                IllegalArgumentException.class,
+                () -> service.createPerson(person),
+                () -> "Empty e-Mail should have cause an IllegalArgumentException!"
+        );
+    }
 }
