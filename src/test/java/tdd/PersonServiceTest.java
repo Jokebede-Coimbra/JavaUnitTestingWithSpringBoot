@@ -1,6 +1,7 @@
 package tdd;
 
 import entities.Person;
+import org.junit.jupiter.api.BeforeEach;
 import service.PersonService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -10,14 +11,19 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class PersonServiceTest {
 
+    Person person;
+
+    @BeforeEach
+    void setup() {
+        person = new Person("Jayanne", "Coimbra", "jay@gmail.com", "female", "EUA");
+    }
+
     @DisplayName("When Create a Person with Sucess Should Return a Person Object")
     @Test
     void testCreatePerson_WhenSucess_ShouldReturnPersonObject() {
 
         // Given / Arrange
         IPersonService service = new PersonService();
-
-        Person person = new Person("Jayanne", "Coimbra", "jay@gmail.com", "female", "EUA");
 
         // When / Act
         Person actual = service.createPerson(person);
@@ -33,8 +39,6 @@ public class PersonServiceTest {
 
         // Given / Arrange
         IPersonService service = new PersonService();
-
-        Person person = new Person("Jayanne", "Coimbra", "jay@gmail.com", "female", "EUA");
 
         // When / Act
         Person actual = service.createPerson(person);
