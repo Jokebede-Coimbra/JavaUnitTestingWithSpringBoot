@@ -1,7 +1,6 @@
 package service;
 
 import entities.Person;
-import service.IPersonService;
 
 import java.util.concurrent.atomic.AtomicLong;
 
